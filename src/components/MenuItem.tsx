@@ -1,11 +1,13 @@
 interface IItems {
-    item: string
+  item: string;
 }
 
-export default function MenuItem({item}: IItems) {
+export default function MenuItem({ item }: IItems) {
   return (
     <div>
-          <li className="menu-item px-4 py-2 hover:text-[#FFA542]">{item}</li>
+      <button className="item" onClick={}>
+        <li className="menu-item px-4 py-2 hover:text-[#FFA542]">{item}</li>
+      </button>
     </div>
-  )
+  );
 }

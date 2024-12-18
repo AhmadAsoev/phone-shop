@@ -1,7 +1,7 @@
 import MenuItem from "./MenuItem";
 
 export default function HeaderMenu() {
-    const items = ["Apple", "INOI", "Nokia", "Oppo", "Xiaomi", "Realme", "Samsung", "Sony", "Vivo"]
+    const items = ["Apple", "Xiaomi", "Samsung",]
 
   return (
     <div className="menu absolute w-[255px] h-[512px] rounded-br-[30px] rounded-bl-[30px] bg-[#EAEAEA] drop-shadow-[0_0_20px_rgba(0,0,0,0.1)]">
