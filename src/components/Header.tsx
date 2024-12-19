@@ -1,11 +1,13 @@
 import { ChevronDown, Heart, ShoppingCart, Smartphone, ChevronUp } from 'lucide-react';
-import { useState } from 'react';
+import { useContext} from 'react';
 import HeaderMenu from './HeaderMenu';
+import { ButtonContext } from '../App';
 
 
 
 export default function Header() {
-  const [isOpen, setOpen] = useState(false);
+  // const [isOpen, setOpen] = useState(false);
+  const {isOpen, setOpen} = useContext(ButtonContext)
 
   const toggleMenu = () => {
     setOpen(!isOpen);
