@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { ButtonContext } from "../App";
+import React, { useState } from 'react';
 
 interface Items {
   element: string;
@@ -22,12 +21,17 @@ export default function HeaderMenu() {
     },
   ];
 
-  const {isOpen, setOpen} = useContext(ButtonContext)
-  
-  const toggleItems = () => {
-    setOpen(!isOpen);
+  const [activeIndex, setActiveIndex] = useState<number | undefined>();
+
+  const handleIndexActive = (index: number) => {
+    setActiveIndex((prev) => (
+        prev === index ? undefined : index
+    )); 
   };
-  
+
+  const handleChildSubitems = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  }
 
   const menuStyle =
     'menu absolute w-[255px] h-[512px] rounded-br-[30px] rounded-bl-[30px]  bg-[#EAEAEA] drop-shadow-[0_0_20px_rgba(0,0,0,0.1)]';
@@ -36,12 +40,17 @@ export default function HeaderMenu() {
     <div className={`${menuStyle}`}>
       <ul className="menu-list max-h-max text-[#1C1C27] w-[150px] h-[464px]  mt-[19px] ml-[27px]">
         {items.map((item, index) => (
-          <li className="menu-item px-4 py-2 hover:text-[#FFA542]" key={index}>
-            {item.element}
-            <ul className="subMenu w-[209px]  relative  top-1  left-8">
-              {item.subElements.map((subElement) => (<li className="">{subElement }</li>))}
-    
-            </ul>
+          <li className="menu-item px-4 py-2" key={index} onClick={() => handleIndexActive(index)}>
+            <span className="hover:text-[#FFA542]"> {item.element}</span>
+            {activeIndex === index && (
+              <ul className="subMenu w-[209px]  relative  top-1  left-8">
+                {item.subElements.map((subElement, subIndex) => (
+                  <li key={subIndex} onClick={(e)=>handleChildSubitems(e)}>
+                    <span className="hover:text-[#FFA542]">{subElement}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
