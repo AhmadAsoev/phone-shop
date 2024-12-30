@@ -21,11 +21,11 @@ export default function HeaderMenu() {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState<number | undefined>();
+  const [activeIndex, setActiveIndex] = useState<number[]>([]);
 
   const handleIndexActive = (index: number) => {
     setActiveIndex((prev) => (
-        prev === index ? undefined : index
+        prev.includes(index) ? prev.filter((itemId)=> itemId !== index) : [...prev, index]
     )); 
   };
 
@@ -40,9 +40,9 @@ export default function HeaderMenu() {
     <div className={`${menuStyle}`}>
       <ul className="menu-list max-h-max text-[#1C1C27] w-[150px] h-[464px]  mt-[19px] ml-[27px]">
         {items.map((item, index) => (
-          <li className="menu-item px-4 py-2" key={index} onClick={() => handleIndexActive(index)}>
+          <li className="menu-item px-4 py-2  cursor-pointer" key={index} onClick={() => handleIndexActive(index)}>
             <span className="hover:text-[#FFA542]"> {item.element}</span>
-            {activeIndex === index && (
+            {activeIndex.includes(index) && (
               <ul className="subMenu w-[209px]  relative  top-1  left-8">
                 {item.subElements.map((subElement, subIndex) => (
                   <li key={subIndex} onClick={(e)=>handleChildSubitems(e)}>
