@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif']
+      },
+      dropShadow: {
+        'custom': '0 0 100px rgba(0, 0, 0, 0.1)'
       }
     },
   },
