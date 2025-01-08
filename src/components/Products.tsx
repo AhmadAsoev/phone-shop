@@ -38,7 +38,7 @@ export default function Products() {
   return (
     <div>
       {products.map((product) => (
-        <div key={product.name} className=" block max-w-[1110px] mx-auto position relative overflow-y-auto">
+        <div key={product.name} className=" block max-w-[1110px] mx-auto" >
           <h2 className="title-block  text-xl font-montserrat  text-[#838383] font-bold pb-[20px] pt-[44px] ">
             {product.name}
           </h2>
@@ -46,8 +46,8 @@ export default function Products() {
             {product.elements.map((element) => (
               <div
                 key={element.id}
-                className="card-block rounded-[30px] bg-[#FFFFFF] drop-shadow-custom "
-                onClick={() => { handleClick(element.id); addToBasket(element.id) }}
+                className="card-block rounded-[30px] bg-[#FFFFFF] drop-shadow-custom overflow-x-hidden "
+                onClick={() =>  handleClick(element.id) }
               >
                 {element.price && (
                   <button>
@@ -79,7 +79,7 @@ export default function Products() {
                   </h3>
                 )}
                 {isOpen === element.id && element.description && (
-                  <div className="description-main-block w-[824px] h-[547px] rounded-[15px] bg-[#F9F9F9] absolute top-0 left-0 overflow-y-visible  ">
+                  <div className="description-main-block  rounded-[15px] bg-[#F9F9F9] absolute top-0 left-0  ">
                     <div className="description-title-block w-[824px] h-[65px] rounded-[15px] bg-[#FFFFFF] drop-shadow-custom">
                       <h1 className="title w-[347px] h-[24px] text-xl font-bold font-montserrat pt-[20px] pb-[21px] pl-[22.58px]">
                         Описание и характеристика
@@ -92,19 +92,17 @@ export default function Products() {
                         ))}
                       </ul>
                     </div>
-                    {/* <div className="flex flex-col w-[254px] h-[108px] mx-auto"> */}
-                      {/* <button className="w-254px h-[45px] rounded-[10px] bg-[#101010] drop-shadow-custom mb-[18px]">
-                        <span className="text-white">Купить</span>
-                      </button> */}
-                      <button className="w-254px h-[45px] rounded-[10px] bg-[#101010] drop-shadow-custom flex justify-center">
-                        <div className='flex justify-center '>
-                          <ShoppingCart className="text-white" />
+                    <div className="mx-auto">
+                     
+                      <button className="w-full h-[45px] rounded-[10px] bg-[#101010] drop-shadow-custom text-center mx-auto" onClick={()=> addToBasket(element.id)}>
+                        <div className='flex justify-start '>
+                          <ShoppingCart className="text-white mr-9 ml-9" />
                           <span className="text-white font-montserrat font-medium ">
                             Добавить в корзину
                           </span>
                         </div>
                       </button>
-                    {/* </div> */}
+                    </div>
                   </div>
                 )}
               </div>

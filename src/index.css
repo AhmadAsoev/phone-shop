@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 body{
+    
     @apply bg-[#EAEAEA];
     @apply min-h-screen flex flex-col
     

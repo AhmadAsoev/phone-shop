@@ -1,12 +1,13 @@
 import { ChevronDown, Heart, ShoppingCart, Smartphone, ChevronUp } from 'lucide-react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import HeaderMenu from './HeaderMenu';
 import { ButtonContext } from '../App';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
   const { isOpen, setOpen } = useContext(ButtonContext);
-
+  const [isHovered, setHovered] = useState(false) 
+  
   const toggleMenu = () => {
     setOpen(!isOpen);
   };
@@ -33,19 +34,19 @@ export default function Header() {
       <div className="header-order inline-flex w-[119px] h-[60px] left-[993.49px] gap-10 p-[20px] ml-auto ">
         <Link to="/favorite">
           <div className="order-favorite relative">
-            <Heart className="text-gray-400 " />
-            <span className="absolute -top-2 -right-2 flex items-start justify-center w-5 h-5 bg-yellow-400 rounded-full text-center text-white">
+            <Heart  className='text-gray-400'/>
+            {/* <span className="absolute -top-2 -right-2 flex items-start justify-center w-5 h-5 bg-yellow-400 rounded-full text-center text-white">
               2
-            </span>
+            </span> */}
           </div>
         </Link>
 
         <Link to="/basket">
           <div className="order-basket relative">
-            <ShoppingCart className="text-gray-400 " />
-            <span className=" absolute -top-2 -right-2 flex items-start justify-center w-5 h-5 bg-yellow-400 rounded-full text-white text-center  ">
+            <ShoppingCart  className={ `${isHovered ? 'text-yellow-400' :'text-gray-400' }`} onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}  />
+            {/* <span className=" absolute -top-2 -right-2 flex items-start justify-center w-5 h-5 bg-yellow-400 rounded-full text-white text-center  ">
               1
-            </span>
+            </span> */}
           </div>
         </Link>
       </div>
