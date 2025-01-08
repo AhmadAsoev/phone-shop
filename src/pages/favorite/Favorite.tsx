@@ -1,7 +1,7 @@
 
 export default function Favorite() {
   return (
-    <div>
+    <div className="mt-[370px]">
         Избранное
     </div>
   )

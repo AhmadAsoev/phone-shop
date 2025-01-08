@@ -3,8 +3,6 @@ import { useContext } from 'react';
 import HeaderMenu from './HeaderMenu';
 import { ButtonContext } from '../App';
 import { Link } from 'react-router-dom';
-import Banner from './Banner';
-import Products from './Products';
 
 export default function Header() {
   const { isOpen, setOpen } = useContext(ButtonContext);
@@ -15,7 +13,7 @@ export default function Header() {
 
   return (
     <>
-    <header className="header max-w-[1110px] mx-auto flex justify-between fixed top-0 left-0 right-0 z-10 bg-[#EAEAEA] rounded-b-lg ">
+    <header className="header max-w-[1110px] mx-auto flex justify-between fixed top-0 left-0 right-0 z-10 bg-[#EAEAEA] rounded-b-lg">
       <div className="header-text inline-flex top-[3px] p-[10px] lef-[-10px]  gap-[10px] h-[50px] font-bold">
         <Link to="/">
           <span className="w-[85px] h-[30px] font-montserrat font-bold leading-[30.48px] text-[#101010]">
@@ -52,8 +50,6 @@ export default function Header() {
         </Link>
       </div>
       </header>
-      <Banner />
-      <Products/>
       </>
   );
 }

@@ -6,7 +6,7 @@ export default function Banner() {
       </p>
       <div className="overflow-hidden ">
         <img
-          src="/IPhone.svg"
+          src="/iPhone13.svg"
           alt="iphone"
           className=" drop-shadow-custom relative top-[-40px] "
         />
