@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     
-    <footer className="footer-block max-w-[1110px] h-[100px] bg-[#FFFFFF]  mx-auto rounded-t-[30px] drop-shadow-custom grid grid-cols-3 gap-10 mt-[100px]">
+    <footer className="footer-block w-[1110px] h-[100px] bg-[#FFFFFF]  mx-auto rounded-t-[30px] drop-shadow-custom grid grid-cols-3 gap-10 mt-[250px]   ">
       <Link to="/">
         <span className="footer-title h-[30px] font-montserrat font-bold text-xl  text-[#101010] pl-5 pt-3">
           Qpick

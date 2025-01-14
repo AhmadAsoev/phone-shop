@@ -6,8 +6,9 @@ export default function Layout() {
   return (
     <>
       <Header />
-
-      <Outlet />
+      <main className='flex-1'>
+        <Outlet />
+      </main>
 
       <Footer />
     </>

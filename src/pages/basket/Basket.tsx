@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 
 export default function Basket() {
   const [basket, setBasket] = useState([]);
+  // const [isTotal, setTotal] = setTotal([]);
 
   useEffect(() => {
-    console.log('я вызываюсь один раз');
     const basketOfStorage = JSON.parse(localStorage.getItem('basket') || '[]');
     setBasket(basketOfStorage);
   }, []);
@@ -18,6 +18,10 @@ export default function Basket() {
     setBasket(updateBasket);
     localStorage.setItem('basket', JSON.stringify(updateBasket));
   };
+
+  const newBasket = basket.reduce((total: number, item: IELement) => {
+    return total + item.price;
+  }, 0);
 
   return (
     <>
@@ -72,6 +76,16 @@ export default function Basket() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="w-[349px] h-[114px] rounded-[30px] bg-[#FFFFFF] drop-shadow-custom mt-[20px]">
+            <p className="font-montserrat font-bold text-[15px] leading-[18px] text-[#000000] mx-auto w-[200px] h-[18px] text-center pt-4">
+              Итого : {newBasket} ₸
+            </p>
+            <Link to="/order">
+              <button className="bg-[#101010] text-white rounded-[20px] text-center w-[349px] h-[65px] mt-[30px] mx-auto">
+                Перейти к оформлению{' '}
+              </button>
+            </Link>
           </div>
         </div>
       )}
